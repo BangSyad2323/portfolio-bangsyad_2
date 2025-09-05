@@ -98,10 +98,8 @@ nav .right-half {
   font-size: 2rem;
   box-shadow: 0 6px 3px #3f0101;
   text-shadow: 0.2px 0.2px 1px #fff;
+  margin-left: 0vw;
 }
-
-
-
 
 nav ul {
   list-style: none;
@@ -189,6 +187,7 @@ header {
   width: 1rem;
   height: 40rem;
   transition: 1s;
+  z-index: 1;
 }
 
 .foto.active {
@@ -205,6 +204,7 @@ header {
   object-fit: cover;
   border-radius: 30%;
   filter: grayscale(100%);
+  z-index: 1;
 }
 
 .foto img:hover {
@@ -424,7 +424,7 @@ i:hover {
 
 /* Media */
 
-@media (max-width: 450px) {
+@media (max-width: 1000px) {
   /* umum */
   html {
     font-size: 62.5%;
@@ -470,8 +470,17 @@ i:hover {
 
   .foto {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 25%;
-    right: 44%;
+    right: 10vw;
+    flex: 1 1 20rem;
+    width: clamp(2rem, 40%, 20rem);
+
+    left: 55vw;
+    height: 40vh;
+
   }
 
   .foto.active {
@@ -480,34 +489,44 @@ i:hover {
   }
 
   .foto > img {
-    width: 18rem;
-    height: 28rem;
+    max-width: 110%;
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .nama_foto {
-    top: 75%;
-    font-size: 2rem;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    font-size: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .glow {
-    font-size: 2rem;
+    font-size: 1.5rem;
     position: absolute;
-    width: 20rem;
+    width: 40vw;
     left: -15%;
     text-shadow: 0.5px 0.5px 1px #000;
   }
 
   .glow.active {
-  transform: translateX(30px);
-  opacity: 0;
-}
+    transform: translateX(30px);
+    opacity: 0;
+  }
 
   .glow_2 .mobile {
     position: absolute;
     top: 35%;
-    left: 11%;
+    left: 8%;
     font-weight: 500;
-    width: 15rem;
+    width: 40vw;
     letter-spacing: 1px;
     line-height: 30px;
     transition: 1s;
@@ -527,9 +546,10 @@ i:hover {
   /* proyek */
 
   .proyek {
-    margin-top: 3.5rem;
+    margin-top: 1.9rem;
     box-shadow: -2px -1px 1px #3f0101;
     overflow-y: scroll;
+    margin-bottom: 2rem;
   }
 
   .proyek .proyek-container-1 {
@@ -537,9 +557,21 @@ i:hover {
     flex-wrap: wrap;
   }
 
+  .proyek .proyek-container-1 .foto-proyek {
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(2rem, 85%, 20rem);
+
+    flex-shrink: 1;
+  }
+
   .proyek .proyek-container-1 .foto-proyek img {
-    margin: 20px 5% 5% 0%;
-    width: 15rem;
+    margin-left: 6%;
+    width: 85%;
+    object-fit: cover;
+    max-width: 100%;
     height: 9rem;
   }
 
@@ -550,12 +582,27 @@ i:hover {
 
   .proyek .proyek-container-2 .foto-proyek {
     order: -1;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(2rem, 85%, 20rem);
+   
+
+    flex-shrink: 1;
   }
 
   .proyek .proyek-container-2 .foto-proyek img {
-    margin: 20px 5% 5% 0;
-    width: 15rem;
+    margin-left: 6%;
+    width: 85%;
     height: 9rem;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  .proyek .proyek-container-2 .foto-proyek img:hover{
+    transform: scale(1.1);
+
   }
 
   .proyek .proyek-container-3 .keterangan-foto {
@@ -567,44 +614,81 @@ i:hover {
     border-radius: 20px;
   }
 
+  .proyek .proyek-container-3 .foto-proyek {
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(2rem, 85%, 20rem);
+
+    flex-shrink: 1;
+  }
+
   .proyek .proyek-container-3 .foto-proyek img {
-    margin: 20px 5% 5% 0%;
-    width: 15rem;
+    margin-left: 6%;
+    max-width: 100%;
+    width: 85%;
     height: 9rem;
+    object-fit: cover;
   }
   /* contact */
 
   .container-contact {
     box-shadow: 3px 1px 2px #051a61;
     overflow-y: scroll;
+    height: 100dvh;
   }
 
   .container-contact .fotcap {
-    margin-top: 20rem;
+    height: 40vh;
+    margin-top: 20vh;
+
   }
 
-  .container-contact .fotcap img {
-    width: 15rem;
-    height: 15rem;
+  .container-contact .fotcap .foto-contact {
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    width: clamp(2rem, 90%, 20rem);
+    height: 30rem;
+
+  }
+
+  .container-contact .fotcap .foto-contact img {
+    width: 100%;
+    height: 40vw;
   }
 
   .container-contact .fotcap .caption {
     font-size: 1.7rem;
     text-align: center;
+    margin: 0 1rem;
   }
 
   .copyright {
     position: absolute;
-    top: 85vh;
+   
+  
     left: 0;
+    bottom: 0%;
     width: 100%;
   }
 
   .medsos {
-    margin-top: 50%;
+    gap: 10%;
+    margin-top: 5vh;
+    margin-left: 10%;
+    margin: 5vh 1rem 0 2rem;
+    width: 40vw;
   }
 
   i {
-    font-size: 40px;
+    font-size: 7vw;
+  }
+
+  .medsos p {
+    width: 100%;
+    font-size: 100%;
   }
 }
