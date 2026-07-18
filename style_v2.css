@@ -38,7 +38,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: 1000;
   color: #fff;
 }
 
@@ -213,8 +213,8 @@ header {
 
 .nama_foto {
   position: absolute;
-  top: 100%;
-  left: 20%;
+  top: 90%;
+  left: 10%;
   color: #fff;
   font-size: 3rem;
   font-weight: 600;
@@ -239,12 +239,12 @@ header {
   position: absolute;
   right: -50%;
   top: 0;
-  z-index: 2;
   width: 50%;
   height: 100vh;
   background-color: #ffffff;
   transition: 1s;
   box-shadow: -5px -2px 5px #3f0101;
+  overflow-y: auto;
 }
 
 .proyek.active {
@@ -345,6 +345,7 @@ header {
   background-color: #000000;
   transition: 1s;
   box-shadow: 4px 1px 5px #051a61;
+  overflow-y: auto;
 }
 
 .container-contact.active {
@@ -407,6 +408,32 @@ i:hover {
   text-align: center;
   justify-content: center;
 }
+
+/* Tugas */
+
+.tugas {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 2rem;
+
+  /* posisi awal: turun */
+  transform: translateY(100%);
+  transition: transform 0.6s ease;
+}
+
+.tugas.active {
+  transform: translateY(0);
+}
+
+
 
 /* Footer */
 .copyright {
@@ -480,7 +507,6 @@ i:hover {
 
     left: 55vw;
     height: 40vh;
-
   }
 
   .foto.active {
@@ -548,8 +574,12 @@ i:hover {
   .proyek {
     margin-top: 1.9rem;
     box-shadow: -2px -1px 1px #3f0101;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-bottom: 2rem;
+  }
+
+  .container-contact {
+    overflow-y: auto;
   }
 
   .proyek .proyek-container-1 {
@@ -587,7 +617,6 @@ i:hover {
     justify-content: center;
     align-items: center;
     width: clamp(2rem, 85%, 20rem);
-   
 
     flex-shrink: 1;
   }
@@ -600,9 +629,8 @@ i:hover {
     object-fit: cover;
   }
 
-  .proyek .proyek-container-2 .foto-proyek img:hover{
+  .proyek .proyek-container-2 .foto-proyek img:hover {
     transform: scale(1.1);
-
   }
 
   .proyek .proyek-container-3 .keterangan-foto {
@@ -642,7 +670,6 @@ i:hover {
   .container-contact .fotcap {
     height: 40vh;
     margin-top: 20vh;
-
   }
 
   .container-contact .fotcap .foto-contact {
@@ -652,7 +679,6 @@ i:hover {
     flex-shrink: 1;
     width: clamp(2rem, 90%, 20rem);
     height: 30rem;
-
   }
 
   .container-contact .fotcap .foto-contact img {
@@ -668,8 +694,7 @@ i:hover {
 
   .copyright {
     position: absolute;
-   
-  
+
     left: 0;
     bottom: 0%;
     width: 100%;

@@ -28,7 +28,9 @@ btn_contact.onclick = () => {
 btn_home.onclick = () => {
   if (
     project_button.classList.contains('active') ||
-    contact_button.classList.contains('active')
+    contact_button.classList.contains('active') ||
+     tugasSection.classList.contains('active')
+    
   ) {
     project_button.classList.remove('active');
     contact_button.classList.remove('active');
@@ -36,8 +38,18 @@ btn_home.onclick = () => {
     glow_text.classList.remove('active');
     glow_mobile.classList.remove('active');
     foto.classList.remove('active');
+    tugasSection.classList.remove('active');
   }
 };
+
+const btnTugas = document.getElementById('tugas');
+const tugasSection = document.querySelector('.tugas');
+
+btnTugas.addEventListener('click', function (e) {
+  e.preventDefault();
+  tugasSection.classList.toggle('active');
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
   let progress = 0;

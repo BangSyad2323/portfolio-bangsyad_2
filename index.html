@@ -1,175 +1,1317 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bangsyad Interactive Portfolio</title>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Arsya Danial Haq | Web Developer Portfolio</title>
+    <meta name="description" content="Portfolio profesional Muhammad Arsya Danial Haq - Web Developer & Full Stack Learner. Menampilkan proyek, keahlian, dan pencapaian terbaik.">
+    <meta name="keywords" content="Muhammad Arsya Danial Haq, Web Developer, Full Stack, Portfolio, TandinginAja, TRUKENGO">
+    <meta name="author" content="Muhammad Arsya Danial Haq">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#013B61',
+                            dark: '#002640',
+                            light: '#025287',
+                            soft: 'rgba(1, 59, 97, 0.05)'
+                        },
+                        aksen: {
+                            merah: '#b91818',
+                            merahhover: '#991212'
+                        },
+                        abu: {
+                            muda: '#f8fafc',
+                            sedang: '#e2e8f0',
+                            tua: '#64748b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 30px -10px rgba(1, 59, 97, 0.1)',
+                        'premium-hover': '0 20px 40px -15px rgba(1, 59, 97, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & Lucide Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Font -->
+    <style>
+        /* Base & Custom Utilities */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+        
+        /* Glassmorphism utility */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .glass-dark {
+            background: rgba(1, 59, 97, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(1, 59, 97, 0.08);
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+        /* Hide Scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #013B61;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b91818;
+        }
 
-    <!-- sosial media -->
+        /* Keyframe Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        .animate-glow {
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Loading Screen -->
-    <div id="preloader">
-      <div class="progress-container">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="text">Loading</p>
+        /* Reveal on scroll hidden state */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Card Tilt & Lift utilities */
+        .card-premium {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        .card-premium:hover {
+            transform: translateY(-8px) scale(1.01);
+        }
+
+        /* Custom Typing Cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Mouse Glow Effect Canvas/Container */
+        .mouse-glow-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background: radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(1, 59, 97, 0.03), transparent 40%);
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800">
+
+    <!-- MOUSE GLOW EFFECT BACKGROUND -->
+    <div class="mouse-glow-bg" id="mouseGlow"></div>
+
+    <!-- LOADING SCREEN -->
+    <div id="loadingScreen" class="fixed inset-0 bg-navy z-[99999] flex flex-col items-center justify-content-center justify-center transition-opacity duration-500">
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mb-4"></div>
+            <span class="text-white font-semibold tracking-widest text-lg">ARSYA</span>
+            <p class="text-white/60 text-xs mt-1">Loading Experience...</p>
+        </div>
     </div>
 
-    <!-- Navbar -->
-    <div id="mainContent" style="display: none" class="fade-in">
-      <nav class="slide-in-left">
-        <nav class="left-half">
-          <div class="title">Portfolioo Bangsyad</div>
-        </nav>
-        <nav class="right-half">
-          <ul>
-            <li><a href="#" id="hom">Home</a></li>
-            <li><a href="#" id="pro">Projects</a></li>
-            <li><a href="#" id="con">Contact</a></li>
-          </ul>
-        </nav>
-      </nav>
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-aksen-merah z-[9999] transition-all duration-100" style="width: 0%"></div>
 
-      <!-- Hero section-->
+    <!-- ========================================== -->
+    <!--                   NAVBAR                   -->
+    <!-- ========================================== -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 px-6 md:px-12 lg:px-24">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="text-2xl font-extrabold tracking-wider text-navy transition-colors duration-300" id="navLogo">
+                ARSYA<span class="text-aksen-merah">.</span>
+            </a>
 
-      <div class="body-left"></div>
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-1 glass-dark px-4 py-2 rounded-full border border-navy/5">
+                <a href="#home" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-navy hover:text-aksen-merah">Home</a>
+                <a href="#about" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-slate-600 hover:text-navy">About</a>
+                <a href="#skills" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-slate-600 hover:text-navy">Skills</a>
+                <a href="#projects" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-slate-600 hover:text-navy">Projects</a>
+                <a href="#certificates" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-slate-600 hover:text-navy">Certificates</a>
+                <a href="#achievements" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-slate-600 hover:text-navy">Achievements</a>
+                <a href="#organization" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-slate-600 hover:text-navy">Organization</a>
+                <a href="#contact" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium transition-all text-slate-600 hover:text-navy">Contact</a>
+            </div>
 
-      <header class="judul" id="home">
-        <h1 class="glow">Hi, I'm Bangsyad 👋</h1>
-      </header>
+            <!-- CTA Desktop -->
+            <div class="hidden lg:block">
+                <a href="#contact" class="ripple border border-navy text-navy font-semibold text-sm px-5 py-2.5 rounded-xl transition-all hover:bg-navy hover:text-white shadow-sm">
+                    Hire Me
+                </a>
+            </div>
 
-      <div class="glow_2">
-        <p class="desktop">
-          A passionate and self-taught web developer with a strong interest in
-          AI-assisted development, modern design, and interactive user
-          experiences. I love turning ideas into reality through clean code,
-          creative animations, and meaningful interfaces. With a deep curiosity
-          in how technology can solve real problems, I explore various
-          tools—especially AI—to generate, optimize, and accelerate coding. I
-          believe coding is not just about syntax, but about telling computers
-          how to think in human ways. Currently, I'm focused on building
-          responsive web apps, experimenting with code generation, and exploring
-          creative ways to mix technology, design, and storytelling. I'm always
-          open to collaborations, discussions, and building something impactful.
-        </p>
-
-        <p class="mobile">A passionate and self-taught web developer with a strong interest in
-          AI-assisted development, modern design, and interactive user
-          experiences. I love turning ideas into reality through clean code,
-          creative animations, and meaningful interface.</p>
-      </div>
-      <div class="foto">
-        <img src="foto utama.jpeg" alt="M.Arsya Dani" srcset="" />
-        <div class="nama_foto">M.Arsya Danial Haq</div>
-      </div>
-
-      <!-- Proyek -->
-       
-      <div class="proyek" id="projects">
-        <div class="proyek-container-1">
-          <div class="foto-proyek">
-            <img src="website-kopi.png" alt="Kopi" srcset="" />
-          </div>
-          <div class="keterangan-foto">
-            <p>
-              I have worked on a project to create a website for a coffee brand
-              called Kopi Kenangan Senja. The website was designed to showcase
-              the brand’s identity, provide information about its products, and
-              offer a simple, 
-            </p>
-          </div>
-        </div>
-        <div class="proyek-container-2">
-          <div class="keterangan-foto">
-            <p>
-              I have previously worked on a project where I created a website
-              featuring a slider-style layout inspired by Mobile Legends. The
-              project focused on delivering an engaging user interface with
-              smooth transitions and responsive design, optimized for both
-              desktop and mobile devices.
-            </p>
-          </div>
-          <div class="foto-proyek">
-            <img src="website-mobile-legends.png" alt="Kopi" srcset="" />
-          </div>
-        </div>
-        <div class="proyek-container-3">
-          <div class="foto-proyek">
-            <img class="s"src="website-portfolio.png" alt="Kopi" srcset="" />
-          </div>
-          <div class="keterangan-foto">
-            <p>
-              As part of my web development journey, I designed and developed a
-              personal portfolio website from scratch. This project highlights
-              my abilities in HTML, CSS, and JavaScript, and includes sections
-              for my bio, social media links, and selected projects. The goal
-              was to build an engaging and responsive interface that represents
-              my identity as a developer.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- contact -->
-
-      <div class="container-contact">
-        <div class="fotcap">
-          <div class="foto-contact">
-            <img src="foto-contact.jpeg" alt="" />
-          </div>
-          <div class="caption">Failing iss not the end oF everything</div>
-        </div>
-        <div class="medsos">
-          <figcaption class="apk">
-            <a
-              href="https://www.instagram.com/arsyadn.alhaq_/"
-              class="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <p>Instagram</p>
-          </figcaption>
-          <figcaption class="apk">
-            <a href="https://www.facebook.com/bangsad.dev"
-              ><i class="fab fa-facebook"></i
-            ></a>
-            <p>Facebook</p>
-          </figcaption>
-          <figcaption class="apk">
-            <a href="https://www.tiktok.com/@bangsad.dev"
-              ><i class="fab fa-tiktok"></i
-            ></a>
-
-            <p>Tik Tok</p>
-          </figcaption>
+            <!-- Mobile Menu Toggle -->
+            <button id="menuBtn" class="lg:hidden p-2 text-navy focus:outline-none" aria-label="Toggle Menu">
+                <div class="w-6 h-0.5 bg-current transition-all duration-300 mb-1.5" id="line1"></div>
+                <div class="w-6 h-0.5 bg-current transition-all duration-300 mb-1.5" id="line2"></div>
+                <div class="w-6 h-0.5 bg-current transition-all duration-300" id="line3"></div>
+            </button>
         </div>
 
-        <!-- Footer -->
-
-        <div class="copyright">
-          <p>Created by <a href="">Arsyadani</a>. | &copy; 2025</p>
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="fixed inset-x-0 top-[72px] bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-xl opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-300 px-6 py-8 flex flex-col space-y-4 lg:hidden">
+            <a href="#home" class="mobile-nav-link text-lg font-semibold text-navy border-b border-slate-50 pb-2">Home</a>
+            <a href="#about" class="mobile-nav-link text-lg font-semibold text-slate-600 border-b border-slate-50 pb-2">About</a>
+            <a href="#skills" class="mobile-nav-link text-lg font-semibold text-slate-600 border-b border-slate-50 pb-2">Skills</a>
+            <a href="#projects" class="mobile-nav-link text-lg font-semibold text-slate-600 border-b border-slate-50 pb-2">Projects</a>
+            <a href="#certificates" class="mobile-nav-link text-lg font-semibold text-slate-600 border-b border-slate-50 pb-2">Certificates</a>
+            <a href="#achievements" class="mobile-nav-link text-lg font-semibold text-slate-600 border-b border-slate-50 pb-2">Achievements</a>
+            <a href="#organization" class="mobile-nav-link text-lg font-semibold text-slate-600 border-b border-slate-50 pb-2">Organization</a>
+            <a href="#contact" class="mobile-nav-link text-lg font-semibold text-slate-600 pb-2">Contact</a>
         </div>
-      </div>
+    </nav>
 
-      <!-- Script js -->
 
-      <script src="script.js"></script>
+    <!-- ========================================== -->
+    <!--                HERO SECTION                -->
+    <!-- ========================================== -->
+    <section id="home" class="min-h-screen pt-32 pb-20 flex items-center px-6 md:px-12 lg:px-24 relative overflow-hidden bg-abu-muda">
+        <!-- Decorative Ambient Blurs -->
+        <div class="absolute top-1/4 left-1/10 w-96 h-96 bg-navy/5 rounded-full filter blur-3xl animate-glow"></div>
+        <div class="absolute bottom-1/4 right-1/10 w-96 h-96 bg-aksen-merah/5 rounded-full filter blur-3xl animate-glow" style="animation-delay: -4s"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+            <!-- Left Info Column -->
+            <div class="lg:col-span-7 flex flex-col space-y-6 text-center lg:text-left reveal-left active">
+                <div class="inline-flex items-center justify-center lg:justify-start space-x-2">
+                    <span class="h-px w-8 bg-aksen-merah"></span>
+                    <span class="text-aksen-merah uppercase tracking-widest text-sm font-bold">Welcome to my universe</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy leading-tight">
+                    Hi, I'm <br class="hidden md:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-navy to-navy-light">Muhammad Arsya Danial Haq</span>
+                </h1>
+
+                <div class="h-8 md:h-10 text-xl md:text-2xl font-semibold text-slate-600 flex justify-center lg:justify-start items-center">
+                    <span id="typingTarget" class="typing-cursor border-r-2 border-transparent pr-1"></span>
+                </div>
+
+                <p class="text-base md:text-lg text-abu-tua max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    Seorang mahasiswa Sistem Informasi / Teknologi Informasi tingkat akhir yang fokus pada pengembangan ekosistem web modern berkelanjutan, arsitektur data bersih, dan rekayasa antarmuka digital bernilai estetika premium.
+                </p>
+
+                <!-- Action CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#projects" class="ripple w-full sm:w-auto text-center bg-navy text-white font-semibold px-8 py-4 rounded-xl shadow-premium hover:shadow-premium-hover transition-all hover:bg-navy-light transform hover:-translate-y-0.5">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="ripple w-full sm:w-auto text-center bg-white border border-slate-200 text-navy font-semibold px-8 py-4 rounded-xl shadow-sm hover:border-navy transition-all transform hover:-translate-y-0.5">
+                        Download CV
+                    </a>
+                </div>
+
+                <!-- Social Connect Elements -->
+                <div class="flex items-center justify-center lg:justify-start space-x-6 pt-6 text-abu-tua">
+                    <a href="https://github.com" target="_blank" class="hover:text-navy transition-colors transform hover:scale-110"><i data-lucide="github" class="w-6 h-6"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-navy transition-colors transform hover:scale-110"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                    <a href="#" class="hover:text-navy transition-colors transform hover:scale-110"><i data-lucide="globe" class="w-6 h-6"></i></a>
+                    <a href="mailto:nurildani81@gmail.com" class="hover:text-navy transition-colors transform hover:scale-110"><i data-lucide="mail" class="w-6 h-6"></i></a>
+                </div>
+            </div>
+
+            <!-- Right Visual Column -->
+            <div class="lg:col-span-5 flex justify-center items-center reveal-right active">
+                <!-- Outer Glass Layer Wrapper -->
+                <div class="relative w-72 h-72 sm:w-85 sm:h-85 md:w-96 md:h-96 aspect-square bg-gradient-to-br from-white to-slate-100 p-6 rounded-[2rem] shadow-premium border border-white animate-float">
+                    <!-- Absolute Decorative Border Gradient -->
+                    <div class="w-full h-full bg-navy rounded-2xl flex flex-col items-center justify-center text-white relative overflow-hidden group shadow-inner">
+                    <img src="/arsyadani.webp" alt="" class="h-full p-5 w-full rounded-xl object-contain" srcset="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!--                ABOUT SECTION               -->
+    <!-- ========================================== -->
+    <section id="about" class="py-24 px-6 md:px-12 lg:px-24 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Title Header -->
+            <div class="flex flex-col items-center text-center mb-16 reveal">
+                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Discovery</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">About Me</h2>
+                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                <!-- Card 1: Short Bio -->
+                <div class="card-premium glassmorphism p-8 rounded-2xl shadow-premium border border-slate-100 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center text-navy mb-6">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy mb-4">Short Bio</h3>
+                        <p class="text-abu-tua text-sm md:text-base leading-relaxed font-light">
+                            Mengawali perjalanannya di bidang teknologi informasi dengan antusiasme tinggi untuk memecahkan masalah komputasional praktis. Mengkombinasikan basis logika analitis struktural yang kuat dengan implementasi visual fungsional yang responsif di berbagai platform komparatif.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs font-mono text-navy/60">
+                        <span>LATEST UPDATED</span>
+                        <span>2026</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Education -->
+                <div class="card-premium glassmorphism p-8 rounded-2xl shadow-premium border border-slate-100 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center text-navy mb-6">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy mb-4">Education</h3>
+                        <p class="text-navy font-semibold text-base mb-1">S1 - Sistem Informasi / Teknologi Informasi</p>
+                        <p class="text-slate-500 text-sm mb-4">Universitas Terkemuka • Semester 4 (Aktif)</p>
+                        <p class="text-abu-tua text-sm leading-relaxed font-light">
+                            Mempelajari fondasi arsitektur data, manajemen jaringan komputer Cisco, rekayasa perangkat lunak terapan, serta metodologi pengembangan sistem informasi bisnis korporat.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs font-mono text-navy/60">
+                        <span>IPK TARGET</span>
+                        <span>3.85+</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Current Focus -->
+                <div class="card-premium glassmorphism p-8 rounded-2xl shadow-premium border border-slate-100 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center text-navy mb-6">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy mb-4">Current Focus</h3>
+                        <p class="text-abu-tua text-sm md:text-base leading-relaxed font-light">
+                            Saat ini sedang mendalami arsitektur pengembangan web full-stack end-to-end, dengan fokus utama pada efisiensi rest API menggunakan Node.js/Express, integrasi database relasional yang aman, serta pemanfaatan Tailwind CSS untuk optimalisasi antarmuka UI.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs font-mono text-navy/60">
+                        <span>CORE TECHSTACK</span>
+                        <span>PERN / MERN</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Career Goal -->
+                <div class="card-premium glassmorphism p-8 rounded-2xl shadow-premium border border-slate-100 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center text-navy mb-6">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy mb-4">Career Goal</h3>
+                        <p class="text-abu-tua text-sm md:text-base leading-relaxed font-light">
+                            Bercita-cita menjadi seorang Full-Stack Engineer profesional yang mampu merancang arsitektur sistem skala besar, memimpin inisiatif transformasi digital komersial yang skalabel, dan berkontribusi penuh pada proyek repositori sumber terbuka global.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs font-mono text-navy/60">
+                        <span>TIMELINE ACHIEVE</span>
+                        <span>1-2 YEARS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!--                SKILLS SECTION              -->
+    <!-- ========================================== -->
+    <section id="skills" class="py-24 px-6 md:px-12 lg:px-24 bg-abu-muda relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Title Header -->
+            <div class="flex flex-col items-center text-center mb-16 reveal">
+                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Capabilities</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Technical Skills</h2>
+                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+                <!-- Category 1: Frontend -->
+                <div class="bg-white p-6 rounded-2xl shadow-premium border border-slate-100 flex flex-col space-y-6 reveal">
+                    <h3 class="text-lg font-bold text-navy flex items-center border-b border-slate-100 pb-3">
+                        <i data-lucide="layout" class="w-5 h-5 text-aksen-merah mr-2"></i> Frontend
+                    </h3>
+                    <div class="space-y-4 flex-1">
+                        <!-- Skill Component Stack -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>HTML</span><span class="counter-target" data-target="95">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>CSS</span><span class="counter-target" data-target="90">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>JavaScript</span><span class="counter-target" data-target="88">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Tailwind CSS</span><span class="counter-target" data-target="92">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>React</span><span class="counter-target" data-target="80">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Backend -->
+                <div class="bg-white p-6 rounded-2xl shadow-premium border border-slate-100 flex flex-col space-y-6 reveal">
+                    <h3 class="text-lg font-bold text-navy flex items-center border-b border-slate-100 pb-3">
+                        <i data-lucide="server" class="w-5 h-5 text-aksen-merah mr-2"></i> Backend
+                    </h3>
+                    <div class="space-y-4 flex-1">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Node.js</span><span class="counter-target" data-target="82">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="82%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Express.js</span><span class="counter-target" data-target="85">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Database -->
+                <div class="bg-white p-6 rounded-2xl shadow-premium border border-slate-100 flex flex-col space-y-6 reveal">
+                    <h3 class="text-lg font-bold text-navy flex items-center border-b border-slate-100 pb-3">
+                        <i data-lucide="database" class="w-5 h-5 text-aksen-merah mr-2"></i> Database
+                    </h3>
+                    <div class="space-y-4 flex-1">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>PostgreSQL</span><span class="counter-target" data-target="78">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="78%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>MySQL</span><span class="counter-target" data-target="85">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Tools -->
+                <div class="bg-white p-6 rounded-2xl shadow-premium border border-slate-100 flex flex-col space-y-6 reveal">
+                    <h3 class="text-lg font-bold text-navy flex items-center border-b border-slate-100 pb-3">
+                        <i data-lucide="cpu" class="w-5 h-5 text-aksen-merah mr-2"></i> Tools
+                    </h3>
+                    <div class="space-y-4 flex-1">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Git & GitHub</span><span class="counter-target" data-target="88">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>VS Code</span><span class="counter-target" data-target="90">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Figma</span><span class="counter-target" data-target="75">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Postman</span><span class="counter-target" data-target="83">0</span>%
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="skill-progress-bar h-full bg-navy rounded-full transition-all duration-1000" style="width: 0%" data-width="83%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!--               PROJECTS SECTION             -->
+    <!-- ========================================== -->
+    <section id="projects" class="py-24 px-6 md:px-12 lg:px-24 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Title Header -->
+            <div class="flex flex-col items-center text-center mb-16 reveal">
+                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Case Studies</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Featured Projects</h2>
+                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
+            </div>
+
+            <div class="flex flex-col space-y-20">
+                <!-- Project 1: TandinginAja -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center reveal">
+                    <!-- Preview Image Column -->
+                    <!-- Preview Image Column (Mockup Smartphone Modern) -->
+                    <div class="lg:col-span-6 flex justify-center items-center p-4 reveal">
+                        <!-- Outer Phone Shell / Bezel (Lebar disesuaikan ke 280px agar layar lebih lega) -->
+                        <div class="relative mx-auto border-slate-900 bg-slate-900 border-[12px] rounded-[2.5rem] h-[500px] w-[280px] shadow-2xl overflow-hidden group">
+                            
+                            <!-- Top Speaker/Notch (Dynamic Island Style) -->
+                            <div class="absolute top-2 inset-x-0 flex justify-center z-30 pointer-events-none">
+                                <div class="bg-black h-4 w-20 rounded-full"></div>
+                            </div>
+                            
+                            <!-- Side Buttons Graphic (Decorative) -->
+                            <div class="absolute -left-[14px] top-24 bg-slate-900 h-10 w-[2px] rounded-l-sm"></div>
+                            <div class="absolute -left-[14px] top-36 bg-slate-900 h-10 w-[2px] rounded-l-sm"></div>
+                            <div class="absolute -right-[14px] top-28 bg-slate-900 h-14 w-[2px] rounded-r-sm"></div>
+
+                            <!-- Phone Screen Content Area (Bersih tanpa double container & padding) -->
+                            <div class="w-full h-full bg-slate-800 relative overflow-hidden">
+                                
+                                <!-- FOTO SCREENSHOT ASLI APLIKASI -->
+                                <img src="tandinginaja.webp" alt="TandinginAja Mobile View" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+
+                                <!-- Ambient Glow Overlay (Efek kilau kaca premium) -->
+                                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_50%)] pointer-events-none"></div>
+
+                                <!-- Bottom Home Indicator Line -->
+                                <div class="absolute bottom-2 inset-x-0 flex justify-center z-30 pointer-events-none">
+                                    <div class="bg-white/60 h-1 w-24 rounded-full shadow-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meta Detail Content Column -->
+                    <div class="lg:col-span-6 flex flex-col space-y-4">
+                        <span class="text-xs font-mono font-bold tracking-wider text-aksen-merah">WEB APPLICATION (COMPETITION PRODUCTION)</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-navy">TandinginAja</h3>
+                        <p class="text-abu-tua text-sm md:text-base leading-relaxed font-light">
+                            Platform digital inovatif terpadu yang didesain khusus untuk mempermudah pencarian partner latih tanding (sparring) olahraga serta sistem pemesanan/booking lapangan secara real-time. Dibangun secara efisien untuk menyelesaikan hambatan koordinasi komunitas lokal tanpa dependensi modul pembayaran uang muka (DP).
+                        </p>
+                        
+                        <!-- Tech Tags -->
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">React</span>
+                            <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">Tailwind CSS</span>
+                            <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">Node.js</span>
+                            <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">Express.js</span>
+                            <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">PostgreSQL</span>
+                        </div>
+
+                        <!-- Core Features List -->
+                        <div class="pt-2">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-navy mb-2">Core Features:</h4>
+                            <ul class="text-xs text-abu-tua space-y-1">
+                                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-green-500 mr-2"></i> Sparring Matching Algorithm Match</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-green-500 mr-2"></i> Interactive Venue Booking Schedule Grid</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-green-500 mr-2"></i> Verified Community Host Management</li>
+                            </ul>
+                        </div>
+
+                        <!-- Action Controls -->
+                        <div class="flex items-center space-x-4 pt-4">
+                            <a href="https://tandinginaja.xyz" target="_blank" class="ripple inline-flex items-center text-xs font-bold tracking-wider uppercase text-white bg-navy px-5 py-3 rounded-xl shadow-md hover:bg-navy-light transition-all">
+                                Live Demo <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1.5"></i>
+                            </a>
+                            <a href="https://github.com" target="_blank" class="ripple inline-flex items-center text-xs font-bold tracking-wider uppercase text-navy border border-slate-200 bg-white px-5 py-3 rounded-xl hover:border-navy transition-all">
+                                GitHub <i data-lucide="github" class="w-3.5 h-3.5 ml-1.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: TRUKENGO -->
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center reveal">
+                  
+                  <!-- Meta Detail Content Column (Otomatis di kiri pada desktop karena tidak pakai order-1) -->
+                  <div class="lg:col-span-6 flex flex-col space-y-4">
+                      <span class="text-xs font-mono font-bold tracking-wider text-aksen-merah">ON-DEMAND COMMERCIAL SERVICE PLATFORM</span>
+                      <h3 class="text-2xl md:text-3xl font-extrabold text-navy">TRUKENGO</h3>
+                      <p class="text-abu-tua text-sm md:text-base leading-relaxed font-light">
+                          Platform digital penyedia layanan jasa titip (jastip) makanan antar kota terintegrasi yang andal. Memfokuskan diri pada simplisitas antarmuka pelacakan distribusi kuliner kuliner khas daerah secara higienis, aman, dan efisien.
+                      </p>
+                      
+                      <!-- Tech Tags -->
+                      <div class="flex flex-wrap gap-2 pt-2">
+                          <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">Vanilla JS</span>
+                          <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">Tailwind CSS</span>
+                          <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">PHP</span>
+                          <span class="text-xs px-3 py-1 bg-slate-100 rounded-full text-navy font-medium">MySQL</span>
+                      </div>
+
+                      <!-- Core Features List -->
+                      <div class="pt-2">
+                          <h4 class="text-xs font-bold uppercase tracking-wider text-navy mb-2">Core Features:</h4>
+                          <ul class="text-xs text-abu-tua space-y-1">
+                              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-green-500 mr-2"></i> Dynamic Food Merchant Discovery Catalogue</li>
+                              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-green-500 mr-2"></i> Transparent Service Fee Calculation Matrix</li>
+                              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-green-500 mr-2"></i> Real-time Distribution Status Updates</li>
+                          </ul>
+                      </div>
+
+                      <!-- Action Controls -->
+                      <div class="flex items-center space-x-4 pt-4">
+                          <a href="https://trukengo.online" target="_blank" class="ripple inline-flex items-center text-xs font-bold tracking-wider uppercase text-white bg-navy px-5 py-3 rounded-xl shadow-md hover:bg-navy-light transition-all">
+                              Live Demo <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1.5"></i>
+                          </a>
+                          <a href="https://github.com" target="_blank" class="ripple inline-flex items-center text-xs font-bold tracking-wider uppercase text-navy border border-slate-200 bg-white px-5 py-3 rounded-xl hover:border-navy transition-all">
+                              GitHub <i data-lucide="github" class="w-3.5 h-3.5 ml-1.5"></i>
+                          </a>
+                      </div>
+                  </div>
+
+                  <!-- Preview Image Column (Mockup Smartphone Modern - Otomatis di kanan pada desktop) -->
+                  <div class="lg:col-span-6 flex justify-center items-center p-4 reveal">
+                      <!-- Outer Phone Shell / Bezel -->
+                      <div class="relative mx-auto border-slate-900 bg-slate-900 border-[12px] rounded-[2.5rem] h-[500px] w-[280px] shadow-2xl overflow-hidden group">
+                          
+                          <!-- Top Speaker/Notch (Dynamic Island Style) -->
+                          <div class="absolute top-2 inset-x-0 flex justify-center z-30 pointer-events-none">
+                              <div class="bg-black h-4 w-20 rounded-full"></div>
+                          </div>
+                          
+                          <!-- Side Buttons Graphic (Decorative) -->
+                          <div class="absolute -left-[14px] top-24 bg-slate-900 h-10 w-[2px] rounded-l-sm"></div>
+                          <div class="absolute -left-[14px] top-36 bg-slate-900 h-10 w-[2px] rounded-l-sm"></div>
+                          <div class="absolute -right-[14px] top-28 bg-slate-900 h-14 w-[2px] rounded-r-sm"></div>
+
+                          <!-- Phone Screen Content Area -->
+                          <div class="w-full h-full bg-slate-800 relative overflow-hidden">
+                              
+                              <!-- FOTO SCREENSHOT ASLI APLIKASI (Ganti trukengo.png sesuai filemu) -->
+                              <img src="trukengo.webp" alt="TRUKENGO Mobile View" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+
+                              <!-- Ambient Glow Overlay -->
+                              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_50%)] pointer-events-none"></div>
+
+                              <!-- Bottom Home Indicator Line -->
+                              <div class="absolute bottom-2 inset-x-0 flex justify-center z-30 pointer-events-none">
+                                  <div class="bg-white/60 h-1 w-24 rounded-full shadow-sm"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!--            CERTIFICATES SECTION            -->
+    <!-- ========================================== -->
+    <section id="certificates" class="py-24 px-6 md:px-12 lg:px-24 bg-abu-muda relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Title Header -->
+            <div class="flex flex-col items-center text-center mb-16 reveal">
+                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Credentials</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Certificates Gallery</h2>
+                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid Items minimal 6 item -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cert 1 -->
+                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Full-Stack Web Development Boot Camp Certificate', 'Dicoding Academy', '2025')">
+                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
+                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Full-Stack Web Development</h3>
+                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                            <span>Dicoding Academy</span>
+                            <span class="font-mono">2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Advanced JavaScript Mastery and Clean Architecture', 'HackerRank', '2025')">
+                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
+                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Advanced JavaScript Mastery</h3>
+                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                            <span>HackerRank</span>
+                            <span class="font-mono">2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Cisco Certified Network Associate (CCNA) Simulation Path', 'Cisco Packet Tracer Enterprise', '2026')">
+                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
+                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">CCNA Networking Fundamentals</h3>
+                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                            <span>Cisco Networking Academy</span>
+                            <span class="font-mono">2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Relational Database Engineering & Schema Design optimization', 'Coursera - IBM Cloud', '2025')">
+                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
+                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Database Engineering & Optimization</h3>
+                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                            <span>IBM / Coursera</span>
+                            <span class="font-mono">2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 5 -->
+                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Enterprise Application Rest-API integration architectures', 'Udemy Corporate', '2026')">
+                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
+                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">REST-API Integration Frameworks</h3>
+                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                            <span>Udemy Professional</span>
+                            <span class="font-mono">2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 6 -->
+                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('UI/UX Responsive Layout Component Design System Patterns', 'Figma Academy Global', '2025')">
+                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
+                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">UI/UX Design Systems Patterns</h3>
+                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                            <span>Figma Global Org</span>
+                            <span class="font-mono">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES POPUP MODAL COMPONENT -->
+    <div id="certModal" class="fixed inset-0 bg-navy/80 z-[99999] backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative p-6" id="modalContent">
+            <button class="absolute top-4 right-4 text-slate-400 hover:text-navy focus:outline-none" onclick="closeCertModal()">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="aspect-[4/3] bg-navy/5 w-full rounded-xl flex flex-col items-center justify-center mb-6 border border-slate-100 relative">
+                <i data-lucide="file-text" class="w-16 h-16 text-navy/20 mb-2"></i>
+                <span class="text-sm text-slate-400 font-mono tracking-wider">Premium Verification Preview Template</span>
+                <div class="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-sm p-3 rounded-lg border border-white flex justify-between items-center text-xxs font-mono text-navy/70">
+                    <span>SECURE METADATA ID: CERT-2026-X9821</span>
+                    <span class="text-green-600 font-bold">VERIFIED AUTHENTIC</span>
+                </div>
+            </div>
+            <h3 id="modalTitle" class="text-xl font-bold text-navy mb-1">Certificate Title</h3>
+            <p id="modalIssuer" class="text-slate-500 text-sm mb-4">Issuer Institution</p>
+            <div class="border-t border-slate-100 pt-4 flex justify-between items-center">
+                <span id="modalYear" class="text-xs font-mono text-slate-400">Year</span>
+                <button class="bg-navy text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-navy-light transition-all" onclick="closeCertModal()">
+                    Close Window
+                </button>
+            </div>
+        </div>
     </div>
-  </body>
+
+
+    <!-- ========================================== -->
+    <!--              ACHIEVEMENTS SECTION          -->
+    <!-- ========================================== -->
+    <section id="achievements" class="py-24 px-6 md:px-12 lg:px-24 bg-white relative">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section Title Header -->
+            <div class="flex flex-col items-center text-center mb-16 reveal">
+                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Milestones</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Achievements Timeline</h2>
+                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Modern Interactive Vertical Timeline Stack -->
+            <div class="relative border-l-2 border-slate-100 ml-4 md:ml-32 space-y-12">
+                <!-- Achievement Item 1 -->
+                <div class="relative pl-8 reveal">
+                    <!-- Timeline Node Pin Point -->
+                    <div class="absolute -left-[13px] top-1.5 w-6 h-6 rounded-full bg-white border-4 border-navy flex items-center justify-center z-10 shadow-sm"></div>
+                    
+                    <!-- Date Floating Indicator Desktop Offset label -->
+                    <div class="hidden md:block absolute -left-36 top-1.5 w-24 text-right font-mono font-bold text-sm text-navy">
+                        2026
+                    </div>
+
+                    <div class="bg-abu-muda p-6 rounded-xl border border-slate-100 shadow-sm relative hover:shadow-md transition-shadow">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2 bg-yellow-500/10 rounded-lg text-yellow-600">
+                                <i data-lucide="trophy" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-navy text-base md:text-lg">Finalis P2MW</h3>
+                        </div>
+                        <p class="text-xs text-slate-400 font-mono mb-2 md:hidden">Tahun: 2026</p>
+                        <p class="text-abu-tua text-sm font-light leading-relaxed">
+                            Lolos pendanaan nasional Program Pembinaan Mahasiswa Wirausaha (P2MW) Kemendikbudristek melalui rancangan pengajuan proposal strategi bisnis digital berkelanjutan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievement Item 2 -->
+                <div class="relative pl-8 reveal">
+                    <!-- Timeline Node Pin Point -->
+                    <div class="absolute -left-[13px] top-1.5 w-6 h-6 rounded-full bg-white border-4 border-navy flex items-center justify-center z-10 shadow-sm"></div>
+                    
+                    <!-- Date Floating Indicator Desktop Offset label -->
+                    <div class="hidden md:block absolute -left-36 top-1.5 w-24 text-right font-mono font-bold text-sm text-navy">
+                        2026
+                    </div>
+
+                    <div class="bg-abu-muda p-6 rounded-xl border border-slate-100 shadow-sm relative hover:shadow-md transition-shadow">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2 bg-yellow-500/10 rounded-lg text-yellow-600">
+                                <i data-lucide="trophy" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-navy text-base md:text-lg">Top 10 Lomba Krenova</h3>
+                        </div>
+                        <p class="text-xs text-slate-400 font-mono mb-2 md:hidden">Tahun: 2026</p>
+                        <p class="text-abu-tua text-sm font-light leading-relaxed">
+                            Berhasil meraih posisi 10 besar terbaik pada kompetisi kreativitas dan inovasi (Krenova) tingkat kabupaten melalui pameran kegunaan arsitektur sistem berbasis web terapan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!--             ORGANIZATION SECTION           -->
+    <!-- ========================================== -->
+    <section id="organization" class="py-24 px-6 md:px-12 lg:px-24 bg-abu-muda relative">
+        <div class="max-w-3xl mx-auto">
+            <!-- Section Title Header -->
+            <div class="flex flex-col items-center text-center mb-16 reveal">
+                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Community</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Organization Experience</h2>
+                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Single Premium Card Layout for Organization -->
+            <div class="bg-white rounded-2xl shadow-premium border border-slate-100 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 card-premium reveal">
+                <div class="flex items-start space-x-4">
+                    <div class="w-14 h-14 bg-navy/5 text-navy rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-mono font-bold text-aksen-merah uppercase tracking-wider">STUDENT ASSOCIATION STRUCTURAL</span>
+                        <h3 class="text-xl font-bold text-navy mt-0.5">Himpunan Mahasiswa (HIMA)</h3>
+                        <p class="text-slate-500 text-sm font-medium mt-0.5">Divisi Hubungan Masyarakat (Humas)</p>
+                        <p class="text-abu-tua text-sm font-light leading-relaxed mt-3 max-w-xl">
+                            Bertanggung jawab penuh dalam mengelola jalur komunikasi eksternal organisasi, menjembatani kemitraan antar lembaga kemahasiswaan, serta memimpin publikasi informasi kegiatan rutin program studi.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-auto text-left md:text-right flex-shrink-0 border-t md:border-t-0 border-slate-100 pt-4 md:pt-0">
+                    <span class="inline-block bg-navy/5 text-navy text-xs font-mono font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                        ACTIVE MEMBER
+                    </span>
+                    <p class="text-slate-400 text-xxs font-mono mt-1">PERIODE KEPENGURUSAN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!--                CONTACT SECTION             -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-24 px-6 md:px-12 lg:px-24 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Title Header -->
+            <div class="flex flex-col items-center text-center mb-16 reveal">
+                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Connect</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Get In Touch</h2>
+                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Info Grid Box Column -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4 items-stretch">
+                    <!-- Phone -->
+                    <div class="bg-abu-muda p-5 rounded-xl border border-slate-100 flex flex-col justify-between card-premium reveal">
+                        <div class="w-9 h-9 bg-navy/5 text-navy rounded-lg flex items-center justify-center mb-4"><i data-lucide="phone" class="w-4 h-4"></i></div>
+                        <div>
+                            <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-1">Phone</h4>
+                            <p class="text-xs text-abu-tua font-light break-all">+62 83838072848</p>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="bg-abu-muda p-5 rounded-xl border border-slate-100 flex flex-col justify-between card-premium reveal">
+                        <div class="w-9 h-9 bg-navy/5 text-navy rounded-lg flex items-center justify-center mb-4"><i data-lucide="mail" class="w-4 h-4"></i></div>
+                        <div>
+                            <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-1">Email</h4>
+                            <p class="text-xs text-abu-tua font-light break-all">nurildani81@gmail.com</p>
+                        </div>
+                    </div>
+                    <!-- Location -->
+                    <div class="bg-abu-muda p-5 rounded-xl border border-slate-100 flex flex-col justify-between card-premium reveal">
+                        <div class="w-9 h-9 bg-navy/5 text-navy rounded-lg flex items-center justify-center mb-4"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
+                        <div>
+                            <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-1">Location</h4>
+                            <p class="text-xs text-abu-tua font-light">Kendal, Jawa Tengah</p>
+                        </div>
+                    </div>
+                    <!-- GitHub Card -->
+                    <div class="bg-abu-muda p-5 rounded-xl border border-slate-100 flex flex-col justify-between card-premium reveal">
+                        <div class="w-9 h-9 bg-navy/5 text-navy rounded-lg flex items-center justify-center mb-4">
+                            <!-- SVG Murni GitHub -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                <path d="M9 18c-4.51 2-5-2-7-2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-1">GitHub</h4>
+                            <p class="text-xs text-abu-tua font-light break-all">github.com/arsya</p>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Card -->
+                    <div class="bg-abu-muda p-5 rounded-xl border border-slate-100 flex flex-col justify-between card-premium reveal">
+                        <div class="w-9 h-9 bg-navy/5 text-navy rounded-lg flex items-center justify-center mb-4">
+                            <!-- SVG Murni LinkedIn -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect width="4" height="12" x="2" y="9"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-1">LinkedIn</h4>
+                            <p class="text-xs text-abu-tua font-light break-all">linkedin.com/in/arsya</p>
+                        </div>
+                    </div>
+                    <!-- Website Portfolio -->
+                    <div class="bg-abu-muda p-5 rounded-xl border border-slate-100 flex flex-col justify-between card-premium reveal">
+                        <div class="w-9 h-9 bg-navy/5 text-navy rounded-lg flex items-center justify-center mb-4"><i data-lucide="globe" class="w-4 h-4"></i></div>
+                        <div>
+                            <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-1">Website</h4>
+                            <p class="text-xs text-abu-tua font-light break-all">arsyadanial.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Message Form Panel Column -->
+                <div class="lg:col-span-7 bg-abu-muda p-8 rounded-2xl border border-slate-100 shadow-premium flex flex-col justify-between reveal">
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-bold text-navy">Send A Quick Message</h3>
+                        <p class="text-xs text-abu-tua font-light leading-relaxed">Punya penawaran proyek pengerjaan landing page, optimasi database, atau kolaborasi strategis? Jangan ragu hubungi saya.</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <input type="text" placeholder="Your Name" class="w-full text-sm px-4 py-3 bg-white rounded-xl border border-slate-200 outline-none focus:border-navy transition-colors">
+                            <input type="email" placeholder="Your Email" class="w-full text-sm px-4 py-3 bg-white rounded-xl border border-slate-200 outline-none focus:border-navy transition-colors">
+                        </div>
+                        <textarea placeholder="Your Message Content Here..." rows="4" class="w-full text-sm px-4 py-3 bg-white rounded-xl border border-slate-200 outline-none focus:border-navy transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button class="ripple w-full bg-navy hover:bg-navy-light text-white font-semibold text-sm py-4 rounded-xl mt-6 shadow-md transition-all flex items-center justify-center space-x-2">
+                        <span>Contact Me</span> <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!--                   FOOTER                   -->
+    <!-- ========================================== -->
+    <footer class="bg-navy text-white py-12 px-6 md:px-12 lg:px-24 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col items-center md:items-start">
+                <span class="text-xl font-black tracking-wider text-white">ARSYA<span class="text-aksen-merah">.</span></span>
+                <p class="text-xxs text-white/40 font-mono mt-1">WEB DEVELOPER EXPERIENCES ARCHIVE</p>
+            </div>
+
+            <div class="text-xs text-white/60 font-light text-center md:text-right">
+                &copy; 2026 Muhammad Arsya Danial Haq. All Rights Reserved.
+            </div>
+        </div>
+
+        <!-- BACK TO TOP ACTIONS COMPONENT -->
+        <button id="backToTopBtn" class="ripple fixed bottom-6 right-6 w-11 h-11 bg-aksen-merah hover:bg-aksen-merahhover text-white rounded-xl shadow-xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4 z-50 focus:outline-none" aria-label="Back to top">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!--               JAVASCRIPT LOGIC             -->
+    <!-- ========================================== -->
+    <script>
+        // Initialize Lucide Vector Icons Asset Loaders
+        lucide.createIcons();
+
+        // 1. LOADING SCREEN CONTROLLER
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loader.classList.add('opacity-0');
+                loader.style.pointerEvents = 'none';
+                // Trigger initial animations after screen clear
+                setTimeout(() => loader.remove(), 500);
+            }, 800);
+        });
+
+        // 2. MOUSE GLOW BACKGROUND EFFECT DYNAMICS
+        const mouseGlow = document.getElementById('mouseGlow');
+        window.addEventListener('mousemove', (e) => {
+            mouseGlow.style.setProperty('--x', `${e.clientX}px`);
+            mouseGlow.style.setProperty('--y', `${e.clientY}px`);
+        });
+
+        // 3. SCROLL PROGRESS BAR CONTROLLER
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // 4. NAVBAR SCROLL INTERACTION STATE UTILITIES
+        const navbar = document.getElementById('navbar');
+        const navLogo = document.getElementById('navLogo');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glassmorphism', 'shadow-premium', 'py-4');
+                navbar.classList.remove('py-5');
+            } else { // <- Di sini harus ditutup dulu dengan } sebelum else
+                navbar.classList.remove('glassmorphism', 'shadow-premium', 'py-4');
+                navbar.classList.add('py-5');
+            }
+        });
+
+        // 5. MOBILE HAMBURGER MENU DRAWER ANIMATIONS CONTROLLER
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                line1.style.transform = 'translateY(8px) rotate(45deg)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                line1.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+            }
+        });
+
+        // Close Mobile Menu on clicking links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.click();
+            });
+        });
+
+        // 6. HERO AUTO TYPING ANIMATION MACHINE LOOP
+        const typingTarget = document.getElementById('typingTarget');
+        const words = ["Web Developer", "Full Stack Learner", "Systems Engineering Enthusiast"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function typeLoop() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typingTarget.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                typingTarget.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 120;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typeSpeed = 1500; // Delay state hold stability when fully typed
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Break segment interval balance check
+            }
+
+            setTimeout(typeLoop, typeSpeed);
+        }
+        setTimeout(typeLoop, 1500); // Fire initial trigger delay match
+
+        // 7. INTERSECTION OBSERVER ENGINE FOR REVEAL ON SCROLL & STAT COUNTERS
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Trigger inner skill progress bars filling animation sequence inside this visible area node
+                    const bars = entry.target.querySelectorAll('.skill-progress-bar');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+
+                    // Trigger embedded numerical counters loops inside target node elements
+                    const counters = entry.target.querySelectorAll('.counter-target');
+                    counters.forEach(counter => {
+                        const targetVal = parseInt(counter.getAttribute('data-target'));
+                        let currVal = 0;
+                        const increment = Math.ceil(targetVal / 30);
+                        const countInterval = setInterval(() => {
+                            currVal += increment;
+                            if (currVal >= targetVal) {
+                                counter.textContent = targetVal;
+                                clearInterval(countInterval);
+                            } else {
+                                counter.textContent = currVal;
+                            }
+                        }, 25);
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 8. SCROLL SPY ACTIVE NAVBAR LINK HIGHLIGHTER
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let currentSecId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    currentSecId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-navy', 'hover:text-aksen-merah', 'font-semibold', 'text-slate-600');
+                if (link.getAttribute('href') === `#${currentSecId}`) {
+                    link.classList.add('text-navy', 'font-semibold');
+                } else {
+                    link.classList.add('text-slate-600');
+                }
+            });
+        });
+
+        // 9. CERTIFICATE GALLERY MODAL CONTROLLER SYSTEM LAYERS
+        const certModal = document.getElementById('certModal');
+        const modalContent = document.getElementById('modalContent');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIssuer = document.getElementById('modalIssuer');
+        const modalYear = document.getElementById('modalYear');
+
+        function openCertModal(title, issuer, year) {
+            modalTitle.textContent = title;
+            modalIssuer.textContent = issuer;
+            modalYear.textContent = `Tahun Penerbitan: ${year}`;
+            
+            certModal.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => modalContent.classList.remove('scale-95'), 10);
+            document.body.style.overflow = 'hidden'; // Lock base document window grid scrolling elements
+        }
+
+        function closeCertModal() {
+            modalContent.classList.add('scale-95');
+            certModal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Close modal on click outside box container context area template panel layout
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) closeCertModal();
+        });
+
+        // 10. BACK TO TOP BUTTON DYNAMICS TOGGLE DISPLAY STATE
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 11. BUTTON RIPPLE CLICK ANIMATION INJECTION LOGIC FRAMEWORK
+        document.querySelectorAll('.ripple').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const rippleCircle = document.createElement('span');
+                rippleCircle.style.position = 'absolute';
+                rippleCircle.style.width = '100px';
+                rippleCircle.style.height = '100px';
+                rippleCircle.style.background = 'rgba(255, 255, 255, 0.25)';
+                if (this.classList.contains('bg-white') || this.classList.contains('border-navy')) {
+                    rippleCircle.style.background = 'rgba(1, 59, 97, 0.1)';
+                }
+                rippleCircle.style.borderRadius = '50%';
+                rippleCircle.style.pointerEvents = 'none';
+                rippleCircle.style.left = `${x - 50}px`;
+                rippleCircle.style.top = `${y - 50}px`;
+                rippleCircle.style.transform = 'scale(0)';
+                rippleCircle.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease-out';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(rippleCircle);
+                
+                setTimeout(() => {
+                    rippleCircle.style.transform = 'scale(4)';
+                    rippleCircle.style.opacity = '0';
+                }, 10);
+                
+                setTimeout(() => rippleCircle.remove(), 500);
+            });
+        });
+    </script>
+</body>
 </html>
