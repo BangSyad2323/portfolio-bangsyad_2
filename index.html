@@ -707,136 +707,159 @@
 
 
     <!-- ========================================== -->
-    <!--            CERTIFICATES SECTION            -->
-    <!-- ========================================== -->
-    <section id="certificates" class="py-24 px-6 md:px-12 lg:px-24 bg-abu-muda relative">
-        <div class="max-w-7xl mx-auto">
-            <!-- Section Title Header -->
-            <div class="flex flex-col items-center text-center mb-16 reveal">
-                <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Credentials</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Certificates Gallery</h2>
-                <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
-            </div>
-
-            <!-- Grid Items minimal 6 item -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Cert 1 -->
-                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Etika Ngoding di Era AI yang Harus Dikuasai Programmer Pemula', 'Sinau Koding Academy', '2025')">
-                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
-                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Etika Ngoding di Era AI yang Harus Dikuasai Programmer Pemula</h3>
-                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
-                            <span>Sinau Koding Academy</span>
-                            <span class="font-mono">2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cert 2 -->
-                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Code Generation and Optimization Using IBM Granite', 'IBM SkillsBuild', '2025')">
-                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
-                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Code Generation and Optimization Using IBM Granite</h3>
-                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
-                            <span>IBM SkillsBuild</span>
-                            <span class="font-mono">2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cert 3 -->
-                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Getting Started with Cisco Packet Tracer', 'Cisco Networking Academy', '2025')">
-                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
-                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Getting Started with Cisco Packet Tracer</h3>
-                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
-                            <span>Cisco Networking Academy</span>
-                            <span class="font-mono">2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cert 4 -->
-                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Use Generative AI for Software Development (MDL-504)', 'IBM SkillsBuild', '2025')">
-                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
-                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Use Generative AI for Software Development (MDL-504)</h3>
-                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
-                            <span>IBM SkillsBuild</span>
-                            <span class="font-mono">2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cert 5 -->
-                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('IBM Granite Models for Software Development (MDL-567)', 'IBM SkillsBuild', '2025')">
-                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
-                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">IBM Granite Models for Software Development (MDL-567)</h3>
-                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
-                            <span>IBM SkillsBuild</span>
-                            <span class="font-mono">2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cert 6 -->
-                <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Code Generation and Optimization Using IBM Granite (MDL-566)', 'IBM SkillsBuild', '2025')">
-                    <div class="aspect-[4/3] w-full bg-navy/5 flex flex-col items-center justify-center border-b border-slate-100 group-hover:bg-navy/10 transition-colors relative">
-                        <i data-lucide="award" class="w-10 h-10 text-navy/40 mb-1 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-xxs font-mono text-slate-400">CLICK TO VIEW PREVIEW</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Code Generation and Optimization Using IBM Granite (MDL-566)</h3>
-                        <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
-                            <span>IBM SkillsBuild</span>
-                            <span class="font-mono">2025</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <section id="certificates" class="py-24 px-6 md:px-12 lg:px-24 bg-abu-muda relative">
+    <div class="max-w-7xl mx-auto">
+        <!-- Section Title Header -->
+        <div class="flex flex-col items-center text-center mb-16 reveal">
+            <span class="text-aksen-merah text-xs uppercase tracking-widest font-extrabold px-3 py-1 bg-aksen-merah/5 rounded-full mb-3">Credentials</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Certificates Gallery</h2>
+            <div class="w-12 h-1 bg-navy mt-4 rounded-full"></div>
         </div>
-    </section>
 
-    <!-- CERTIFICATES POPUP MODAL COMPONENT -->
-    <div id="certModal" class="fixed inset-0 bg-navy/80 z-[99999] backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative p-6" id="modalContent">
-            <button class="absolute top-4 right-4 text-slate-400 hover:text-navy focus:outline-none" onclick="closeCertModal()">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <div class="aspect-[4/3] bg-navy/5 w-full rounded-xl flex flex-col items-center justify-center mb-6 border border-slate-100 relative">
-                <i data-lucide="file-text" class="w-16 h-16 text-navy/20 mb-2"></i>
-                <span class="text-sm text-slate-400 font-mono tracking-wider">Premium Verification Preview Template</span>
-                <div class="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-sm p-3 rounded-lg border border-white flex justify-between items-center text-xxs font-mono text-navy/70">
-                    <span>SECURE METADATA ID: CERT-2026-X9821</span>
-                    <span class="text-green-600 font-bold">VERIFIED AUTHENTIC</span>
+        <!-- Grid Items minimal 6 item -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Cert 1 -->
+            <!-- PERUBAHAN: Fungsi click sekarang mengirimkan path gambar ('sertif1.png') sebagai parameter ke-4 -->
+            <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Etika Ngoding di Era AI yang Harus Dikuasai Programmer Pemula', 'Sinau Koding Academy', '2025', '/assets/sertif1.webp')">
+                <div class="aspect-[4/3] w-full bg-slate-800 border-b border-slate-100 overflow-hidden relative">
+                    <!-- FOTO SERTIFIKAT ASLI -->
+                    <img src="/assets/sertif1.webp" alt="Sertifikat 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold backdrop-blur-xs">
+                        <i data-lucide="eye" class="w-6 h-6 mb-1"></i>
+                        <span>Click to Preview</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Etika Ngoding di Era AI yang Harus Dikuasai Programmer Pemula</h3>
+                    <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                        <span>Sinau Koding Academy</span>
+                        <span class="font-mono">2025</span>
+                    </div>
                 </div>
             </div>
-            <h3 id="modalTitle" class="text-xl font-bold text-navy mb-1">Certificate Title</h3>
-            <p id="modalIssuer" class="text-slate-500 text-sm mb-4">Issuer Institution</p>
-            <div class="border-t border-slate-100 pt-4 flex justify-between items-center">
-                <span id="modalYear" class="text-xs font-mono text-slate-400">Year</span>
-                <button class="bg-navy text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-navy-light transition-all" onclick="closeCertModal()">
-                    Close Window
-                </button>
+
+            <!-- Cert 2 -->
+            <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Code Generation and Optimization Using IBM Granite', 'IBM SkillsBuild', '2025', '/assets/sertif2.webp')">
+                <div class="aspect-[4/3] w-full bg-slate-800 border-b border-slate-100 overflow-hidden relative">
+                    <img src="/assets/sertif2.webp" alt="Sertifikat 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold backdrop-blur-xs">
+                        <i data-lucide="eye" class="w-6 h-6 mb-1"></i>
+                        <span>Click to Preview</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Code Generation and Optimization Using IBM Granite</h3>
+                    <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                        <span>IBM SkillsBuild</span>
+                        <span class="font-mono">2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cert 3 -->
+            <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Getting Started with Cisco Packet Tracer', 'Cisco Networking Academy', '2025', '/assets/sertif3.webp')">
+                <div class="aspect-[4/3] w-full bg-slate-800 border-b border-slate-100 overflow-hidden relative">
+                    <img src="/assets/sertif3.webp" alt="Sertifikat 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold backdrop-blur-xs">
+                        <i data-lucide="eye" class="w-6 h-6 mb-1"></i>
+                        <span>Click to Preview</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Getting Started with Cisco Packet Tracer</h3>
+                    <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                        <span>Cisco Networking Academy</span>
+                        <span class="font-mono">2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cert 4 -->
+            <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Use Generative AI for Software Development (MDL-504)', 'IBM SkillsBuild', '2025', '/assets/sertif4.webp')">
+                <div class="aspect-[4/3] w-full bg-slate-800 border-b border-slate-100 overflow-hidden relative">
+                    <img src="/assets/sertif4.webp" alt="Sertifikat 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold backdrop-blur-xs">
+                        <i data-lucide="eye" class="w-6 h-6 mb-1"></i>
+                        <span>Click to Preview</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Use Generative AI for Software Development (MDL-504)</h3>
+                    <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                        <span>IBM SkillsBuild</span>
+                        <span class="font-mono">2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cert 5 -->
+            <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('IBM Granite Models for Software Development (MDL-567)', 'IBM SkillsBuild', '2025', '/assets/sertif5.webp')">
+                <div class="aspect-[4/3] w-full bg-slate-800 border-b border-slate-100 overflow-hidden relative">
+                    <img src="/assets/sertif5.webp" alt="Sertifikat 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold backdrop-blur-xs">
+                        <i data-lucide="eye" class="w-6 h-6 mb-1"></i>
+                        <span>Click to Preview</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">IBM Granite Models for Software Development (MDL-567)</h3>
+                    <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                        <span>IBM SkillsBuild</span>
+                        <span class="font-mono">2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cert 6 -->
+            <div class="group bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden cursor-pointer card-premium reveal" onclick="openCertModal('Code Generation and Optimization Using IBM Granite (MDL-566)', 'IBM SkillsBuild', '2025', '/assets/sertif6.webp')">
+                <div class="aspect-[4/3] w-full bg-slate-800 border-b border-slate-100 overflow-hidden relative">
+                    <img src="/assets/sertif6.webp" alt="Sertifikat 6" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold backdrop-blur-xs">
+                        <i data-lucide="eye" class="w-6 h-6 mb-1"></i>
+                        <span>Click to Preview</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-navy text-sm md:text-base mb-1 line-clamp-1">Code Generation and Optimization Using IBM Granite (MDL-566)</h3>
+                    <div class="flex items-center justify-between text-xs text-abu-tua mt-2">
+                        <span>IBM SkillsBuild</span>
+                        <span class="font-mono">2025</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========================================== -->
+<!--       MODAL DIALOG PREVIEW DI BAWAH        -->
+<!-- ========================================== -->
+<div id="certModal" class="fixed inset-0 z-[999] bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 transition-all duration-300">
+    <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl relative animate-fade-in">
+        
+        <!-- Tombol Close Atas -->
+        <button onclick="closeCertModal()" class="absolute top-4 right-4 bg-navy/10 hover:bg-navy/20 text-navy p-2 rounded-full transition-colors z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        <!-- Area Konten Gambar Gede -->
+        <div class="w-full bg-slate-900 flex justify-center items-center p-2 sm:p-4">
+            <img id="modalImg" src="" alt="Certificate Preview" class="max-h-[70vh] w-auto object-contain rounded-lg">
+        </div>
+
+        <!-- Detail Teks di Bawah Gambar -->
+        <div class="p-6 bg-white border-t border-slate-100">
+            <h3 id="modalTitle" class="font-extrabold text-navy text-lg md:text-xl mb-1">Title</h3>
+            <div class="flex items-center justify-between text-sm text-abu-tua mt-3">
+                <span id="modalIssuer" class="font-medium">Issuer</span>
+                <span id="modalYear" class="font-mono bg-slate-100 px-2.5 py-0.5 rounded-md text-xs">Year</span>
             </div>
         </div>
     </div>
+</div>
+
 
 
     <!-- ========================================== -->
@@ -1275,36 +1298,35 @@
             });
         });
 
-        // 9. CERTIFICATE GALLERY MODAL CONTROLLER SYSTEM LAYERS
-        const certModal = document.getElementById('certModal');
-        const modalContent = document.getElementById('modalContent');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalIssuer = document.getElementById('modalIssuer');
-        const modalYear = document.getElementById('modalYear');
-
-        function openCertModal(title, issuer, year) {
-            modalTitle.textContent = title;
-            modalIssuer.textContent = issuer;
-            modalYear.textContent = `Tahun Penerbitan: ${year}`;
+        function openCertModal(title, issuer, year, imgPath) {
+            const modal = document.getElementById('certModal');
             
-            certModal.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => modalContent.classList.remove('scale-95'), 10);
-            document.body.style.overflow = 'hidden'; // Lock base document window grid scrolling elements
+            // Inject data dinamis ke dalam elemen modal
+            document.getElementById('modalImg').src = imgPath;
+            document.getElementById('modalImg').alt = title;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalIssuer').innerText = issuer;
+            document.getElementById('modalYear').innerText = year;
+
+            // Tampilkan modal (hapus class hidden)
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Kunci scroll halaman belakang
         }
 
         function closeCertModal() {
-            modalContent.classList.add('scale-95');
-            certModal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                document.body.style.overflow = '';
-            }, 300);
+            const modal = document.getElementById('certModal');
+            
+            // Sembunyikan kembali modal
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Aktifkan kembali scroll halaman
         }
 
-        // Close modal on click outside box container context area template panel layout
-        certModal.addEventListener('click', (e) => {
-            if (e.target === certModal) closeCertModal();
+        // Opsional: Klik area hitam di luar box putih untuk menutup modal
+        document.getElementById('certModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCertModal();
+            }
         });
-
         // 10. BACK TO TOP BUTTON DYNAMICS TOGGLE DISPLAY STATE
         const backToTopBtn = document.getElementById('backToTopBtn');
         window.addEventListener('scroll', () => {
